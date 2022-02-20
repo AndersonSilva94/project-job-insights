@@ -1,4 +1,5 @@
 from functools import lru_cache
+import csv
 
 
 @lru_cache
@@ -16,4 +17,9 @@ def read(path):
     list
         List of rows as dicts
     """
-    return []
+    with open(path) as file:
+        list_csv = csv.DictReader(file, delimiter=",", quotechar='"')
+        jobs_list = [
+            job for job in list_csv
+        ]
+        return jobs_list
