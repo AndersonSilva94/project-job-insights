@@ -3,6 +3,7 @@ from functools import lru_cache
 
 @lru_cache
 def read(path):
+    # commit inicial
     """Reads a file from a given path and returns its contents
 
     Parameters
