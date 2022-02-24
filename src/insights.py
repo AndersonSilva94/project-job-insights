@@ -1,11 +1,13 @@
 from src.jobs import read
 
+
 def get_unique_job_types(path):
     """
     Passos a se seguir:
     1 - Buscar os dados que foram encontrados na def jobs.read
     2 - Criar um array que vai receber os valores apenas do tipo de job
-    3 - Percorrer o array de dados do def jobs.read inserindo apenas o tipo de job no novo array
+    3 - Percorrer o array de dados do def jobs.read inserindo apenas o
+        tipo de job no novo array
     4 - Verificar se o tipo já não existe para não inserir dois iguais
     5 - Retornar a lista de tipos de jobs
     """
@@ -18,19 +20,9 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
+    """
+    Passos a se seguir:
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
     """
     return []
 
