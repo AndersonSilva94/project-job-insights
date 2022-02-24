@@ -1,19 +1,20 @@
+from src.jobs import read
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
     """
-    return []
+    Passos a se seguir:
+    1 - Buscar os dados que foram encontrados na def jobs.read
+    2 - Criar um array que vai receber os valores apenas do tipo de job
+    3 - Percorrer o array de dados do def jobs.read inserindo apenas o tipo de job no novo array
+    4 - Verificar se o tipo já não existe para não inserir dois iguais
+    5 - Retornar a lista de tipos de jobs
+    """
+    list_all_jobs = read(path)
+    type_of_jobs_list = []
+    for job_type in list_all_jobs:
+        if job_type["job_type"] not in type_of_jobs_list:
+            type_of_jobs_list.append(job_type["job_type"])
+    return type_of_jobs_list
 
 
 def filter_by_job_type(jobs, job_type):
