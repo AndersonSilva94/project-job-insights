@@ -20,29 +20,28 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """
-    Passos a se seguir:
 
-    """
     return []
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
     """
-    return []
+    Passos a se seguir:
+    1 - Buscar os dados que foram encontrados na def jobs.read
+    2 - Criar um array que vai receber os valores de indústrias
+    3 - Percorrer o array de dados do def jobs.read inserindo apenas
+        a indústria no novo array
+    4 - Verificar se a indústria já não existe para não inserir dois iguais
+        e/ou vazios
+    5 - Retornar a lista de indústrias
+    """
+    list_all_jobs = read(path)
+    industries_list = []
+    for industry in list_all_jobs:
+        if industry["industry"] not in industries_list:
+            if industry["industry"] != "":
+                industries_list.append(industry["industry"])
+    return industries_list
 
 
 def filter_by_industry(jobs, industry):
