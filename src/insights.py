@@ -20,8 +20,21 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-
-    return []
+    """
+    Passos a se seguir:
+    1 - Criar um array que vai receber os jobs que forem iguais
+         ao tipo passado como segundo parâmetro
+    2 - Percorrer o array passado como primeiro parâmetro
+    3 - Verificar se o tipo do elemento percorrido é igual ao
+         job_type
+    4 - Inserir o job no novo array
+    5 - Retornar a lista de jobs
+    """
+    list_job_by_type = []
+    for job_element in jobs:
+        if job_element["job_type"] == job_type:
+            list_job_by_type.append(job_element)
+    return list_job_by_type
 
 
 def get_unique_industries(path):
