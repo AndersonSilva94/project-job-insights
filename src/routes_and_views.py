@@ -11,7 +11,12 @@ from .insights import (
     get_min_salary,
     get_max_salary,
 )
-from .more_insights import slice_jobs, get_int_from_args, build_jobs_urls
+from .more_insights import (
+    slice_jobs,
+    get_int_from_args,
+    build_jobs_urls,
+    get_job
+)
 
 bp = Blueprint("client", __name__, template_folder="templates")
 
@@ -57,6 +62,28 @@ def list_jobs():
     }
 
     return render_template("list_jobs.jinja2", ctx=ctx)
+
+
+"""
+Passos a se seguir:
+1 - importar a def get_job de more_insights
+2 - Criar a rota que vai fazer a função renderizar a página
+    Deve ser: /job/<index>
+3 - A função deve ser job e recebe index como parâmetro
+4 - Chamar a função read para acessar a lista de jobs
+    Passar o caminho onde está o arquivo como parâmetro
+    Deve ser: src/jobs.csv
+5 - Chamar get_job passsando a lista de jobs e o index como parâmetro
+6 - Deve renderizar o template job.jinja2, e um parâmetro job contendo
+    o job que é retornado pela get_job
+"""
+
+
+@bp.route("/job/<index>")
+def job(index):
+    list_all_jobs = read("src/jobs.csv")
+    find_job_element = get_job(list_all_jobs, index)
+    return render_template("job.jinja2", job=find_job_element)
 
 
 def init_app(app: Flask):
